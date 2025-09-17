@@ -1,5 +1,5 @@
-def hello_world():
-     print("Hello, world!")
+def greet_software_developer():
+     print("Hello Software Developer.")
 
 if __name__ == "__main__":
-     hello_world()
+     greet_software_developer()
