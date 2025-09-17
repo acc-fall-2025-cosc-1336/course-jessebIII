@@ -1,11 +1,7 @@
-from devprocess import echo_value
-# Example usage of echo_value function
-def main():
-    echoed_value = echo_value("Hello, world!")
-    print(echoed_value)  # Output: Hello, world!
+from devprocess import hello_world
 
-    echoed_value = echo_value(42)
-    print(echoed_value)  # Output: 42
+def main():
+    hello_world()
 
 if __name__ == "__main__":
     main()
