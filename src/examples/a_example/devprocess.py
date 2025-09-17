@@ -1,3 +1,10 @@
+# Echo function returns the input value
+def echo_value(x):
+    return x
+
+# Add two numbers and return the result
+def add_numbers(a, b):
+    return a + b
 # A simple program to multiply two numbers
 
 def multiply_numbers(a, b):
