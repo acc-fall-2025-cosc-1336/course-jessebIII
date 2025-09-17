@@ -1,7 +1,7 @@
 import unittest
 
 
-from src.examples.a_example.devprocess import echo_value, add_numbers
+from src.examples.a_example.devprocess import multiply_numbers
 
 class Test_Config(unittest.TestCase):
 
