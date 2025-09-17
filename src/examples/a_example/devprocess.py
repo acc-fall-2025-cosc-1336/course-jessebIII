@@ -12,7 +12,6 @@ def main():
     print(f"The product of {num1} and {num2} is {result1}")
 
 
-
 # Run the program
 if __name__ == "__main__":
     main()
