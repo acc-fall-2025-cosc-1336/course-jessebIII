@@ -1,7 +1,7 @@
-from devprocess import hello_world
+from devprocess import greet_software_developer
 
 def main():
-    hello_world()
+    # Call the imported function
 
-if __name__ == "__main__":
-    main()
+    if  __name__ == "__main__":
+        main()
