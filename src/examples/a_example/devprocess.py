@@ -18,6 +18,12 @@ def main():
     result1 = multiply_numbers(num1, num2)
     print(f"The product of {num1} and {num2} is {result1}")
 
+    # Second multiplication: 5 x 5
+    num3 = 5
+    num4 = 5
+    result2 = multiply_numbers(num3, num4)
+    print(f"The product of {num3} and {num4} is {result2}")
+
 
 # Run the program
 if __name__ == "__main__":
