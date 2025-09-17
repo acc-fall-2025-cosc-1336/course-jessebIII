@@ -1,5 +1,5 @@
-def hello_world(name):
-     print("Hello, " + name + "!")
+def hello_world():
+     print("Hello, world!")
 
-def echo_value(value):
-    return value
+if __name__ == "__main__":
+     hello_world()
