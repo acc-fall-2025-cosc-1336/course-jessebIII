@@ -1,4 +1,6 @@
-from devprocess import greet_software_developer
+from devprocess import multiply_numbers
+result = multiply_numbers(7, 7)
+result = multiply_numbers(5, 5)
+from devprocess import echo_value
 
-if __name__ == "__main__":
-    greet_software_developer()
+print(result)
