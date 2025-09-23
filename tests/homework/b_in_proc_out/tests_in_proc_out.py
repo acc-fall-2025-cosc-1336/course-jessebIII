@@ -15,4 +15,3 @@ class Test_Config(unittest.TestCase):
     def test_get_number_2(self):
         #test that the function get_number returns 2
         self.assertEqual(2, get_number(2))
-
