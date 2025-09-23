@@ -15,4 +15,10 @@ def main():
     tip_percentage = float(input("Enter the tip percentage (as a decimal): "))
 
     #convert percentage to decimal
-    tip_rate = tip_percentage / 100
+ tip_rate = tip_percentage / 100
+
+#calculations using functions
+tax = get_sales_tax_amount(meal_amount)
+tip = get_tip_amount(meal_amount, tip_rate)
+total = meal_amount + tax + tip
+
