@@ -1,30 +1,33 @@
-# Echo function returns the input value
-def echo_value(x):
-    return x
+# named constant
+TAX_RATE = 0.0675 #6.75%
 
-# Add two numbers and return the result
-def add_numbers(a, b):
-    return a + b
-# A simple program to multiply two numbers
+def get_sales_tax_amount(meal_amount: float) -> float:
+    """Calculate the sales tax amount on a meal."""
+    return meal_amount * TAX_RATE
 
-def multiply_numbers(a, b):
-    """Return the product of two numbers."""
-    return a * b
+def get_tip_amount(meal_amount: float, tip_percentage: float) -> float:
+    """Calculate the tip amount on a meal."""
+    return meal_amount * tip_percentage # 
 
 def main():
-    # First multiplication: 7 x 7
-    num1 = 7
-    num2 = 7
-    result1 = multiply_numbers(num1, num2)
-    print(f"The product of {num1} and {num2} is {result1}")
+    #get input from the user
+    meal_amount = float(input("Enter the meal amount: "))
+    tip_percentage = float(input("Enter the tip percentage (as a decimal): "))
 
-    # Second multiplication: 5 x 5
-    num3 = 5
-    num4 = 5
-    result2 = multiply_numbers(num3, num4)
-    print(f"The product of {num3} and {num4} is {result2}")
+    #convert percentage to decimal
+    tip_rate = tip_percentage / 100
 
+    #calculations using functions
+    tax = get_sales_tax_amount(meal_amount)
+    tip = get_tip_amount(meal_amount, tip_rate)
+    total = meal_amount + tax + tip
 
-# Run the program
+    #dispay receipt
+    print("\n-----receipt-----")
+    print(f"meal amount: ${meal_amount:.2f}")
+    print(f"sales tax: ${tax:.2f}")
+    print(f"tip amount: ${tip:.2f}")
+    print(f"total amount: ${total:.2f}")# tip percentage as a decimal
+
 if __name__ == "__main__":
     main()
