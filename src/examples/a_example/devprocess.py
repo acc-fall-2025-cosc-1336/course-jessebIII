@@ -22,3 +22,12 @@ tax = get_sales_tax_amount(meal_amount)
 tip = get_tip_amount(meal_amount, tip_rate)
 total = meal_amount + tax + tip
 
+#dispay receipt
+print("\n-----receipt-----")
+print(f"meal amount: ${meal_amount:.2f}")
+print(f"sales tax: ${tax:.2f}")
+print(f"tip amount: ${tip:.2f}")
+print(f"total amount: ${total:.2f}")# tip percentage as a decimal
+
+if __name__ == "__main__":
+    main()
