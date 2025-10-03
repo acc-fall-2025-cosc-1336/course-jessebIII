@@ -1,3 +1,5 @@
+from repetition import get_factorial, sum_odd_numbers
+
 def main():
     while True:
         print('\nHomework 4 Menu')
@@ -5,7 +7,7 @@ def main():
         print("2-Sum of Odd Numbers")
         print("3-Exit")
         choice = input("Enter your choice (1-3): ")
-        if choice == '1':
+        if choice == '3':
             while True:
                 try:
                     num = int(input("Enter a non-negative integer to calculate its factorial: "))
