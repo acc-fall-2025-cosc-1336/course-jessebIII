@@ -4,26 +4,9 @@ import unittest
 # Add project root to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..')))
 
-from src.homework.b_in_proc_out.output import get_sales_tax_amount, get_tip_amount
+from tests.homework.d_repetition import tests_repetition
 
-class Test_ReceiptFunctions(unittest.TestCase):
 
-    # Test get_sales_tax_amount
-    def test_sales_tax_normal(self):
-        self.assertAlmostEqual(get_sales_tax_amount(20), 1.35, places=2)
-
-    def test_sales_tax_zero(self):
-        self.assertAlmostEqual(get_sales_tax_amount(0), 0.00, places=2)
-
-    def test_sales_tax_large(self):
-        self.assertAlmostEqual(get_sales_tax_amount(1000), 67.50, places=2)
-
-    # Test get_tip_amount
-    def test_tip_normal(self):
-        self.assertEqual(get_tip_amount(3), 3.00)
-
-    def test_tip_zero(self):
-        self.assertEqual(get_tip_amount(0), 0.00)
-
-    def test_tip_large(self):
-        self.assertEqual(get_tip_amount(100), 100.00)
+# Load and run tests from tests_repetition
+suite = unittest.TestLoader().loadTestsFromModule(tests_repetition)
+unittest.TextTestRunner().run(suite)
