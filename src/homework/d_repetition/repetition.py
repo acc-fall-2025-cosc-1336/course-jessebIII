@@ -3,4 +3,6 @@ def get_factorial(n):
     for i in range(2, n + 1):
         result *= i
     return result
-    result = 1
+print(get_factorial(5))  # 120
+print(get_factorial(1))  # 1
+print(get_factorial(0))  # 1
