@@ -1,5 +1,8 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../src')))
 import unittest
-from src.homework
+from homework.c_decisions.decisions import get_letter_grade
 
 class TestLetterGrade(unittest.TestCase):
     def Test_A_grade(self):
