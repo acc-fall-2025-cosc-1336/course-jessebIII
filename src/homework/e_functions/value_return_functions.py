@@ -9,4 +9,7 @@ def get_gross_pay(hours, rate):
 
 def get_fica_tax(gross_pay):
     fica_tax = gross_pay * 0.0765
-    return fica_tax
+    return gross pay - fica_tax
+
+def get_federal_tax(gross_pay):
+    return gross_pay * federal_tax_rate
