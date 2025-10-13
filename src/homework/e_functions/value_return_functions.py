@@ -6,3 +6,7 @@ def get_gross_pay(hours, rate):
     else:
         gross_pay = hours * rate
     return gross_pay
+
+def get_fica_tax(gross_pay):
+    fica_tax = gross_pay * 0.0765
+    return fica_tax
