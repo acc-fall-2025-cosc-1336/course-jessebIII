@@ -15,4 +15,22 @@ def get_hamming_distance(dna1, dna2):
 
 def get_dna_complement(dna):
     #return the reverse complement of a DNA string
-    
+
+    # mapping
+    comp_map = {
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
+        'G': 'C'
+    }
+
+    complement = ""
+    i = 0
+    while i < len(dna):
+        base = dna[i].upper()
+        if base not in comp_map:
+            raise ValueError(f"Invalid DNA base: {base}")
+        complement += comp_map[base]
+        j += 1
+
+    return complement[::-1]
