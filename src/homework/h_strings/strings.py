@@ -12,3 +12,7 @@ def get_hamming_distance(dna1, dna2):
             distance += 1
         i += 1
     return distance
+
+def get_dna_complement(dna):
+    #return the reverse complement of a DNA string
+    
