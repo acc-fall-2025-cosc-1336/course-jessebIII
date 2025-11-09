@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 import unittest
 from src.homework.h_strings.value_return import get_hamming_distance
 from src.homework.h_strings.value_return import get_dna_complement
