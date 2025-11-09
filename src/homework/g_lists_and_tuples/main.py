@@ -1,53 +1,87 @@
-"""Small program to collect numbers into a list (step 1 of 3).
+"""Menu-driven program to collect numbers and show lowest/highest values.
 
-Step 1: read a series of numbers from the user, store them in a list and
-print the list. Subsequent steps will compute the minimum and maximum.
+Menu:
+1-Show the list low /high values
+2-Exit
+
+When the user chooses option 1 the program will prompt for list values.
+After the user has entered at least 3 values the prompt
+"Do you want to enter another value?" will be displayed after each entry
+so the user can stop entering values.
 """
 
-def main():
-	nums = []
-	print("Enter numbers one at a time. Press Enter on a blank line to finish.")
-	while True:
-		s = input("Number (blank to finish): ").strip()
-		if s == "":
-			break
+def _import_list_funcs():
+	"""Import helper that tries a few import styles so this file can be
+	executed both as a script and as a package module during tests.
+	"""
+	try:
+		from src.homework.g_lists_and_tuples.lists import (
+			get_lowest_list_value,
+			get_highest_list_value,
+		)
+		return get_lowest_list_value, get_highest_list_value
+	except Exception:
 		try:
-			# allow integers or floats
-			if '.' in s:
-				n = float(s)
-			else:
-				n = int(s)
+			# When running this file directly from its directory
+			from lists import get_lowest_list_value, get_highest_list_value
+
+			return get_lowest_list_value, get_highest_list_value
+		except Exception:
+			# When imported as a package
+			from .lists import get_lowest_list_value, get_highest_list_value
+
+			return get_lowest_list_value, get_highest_list_value
+
+
+def _read_number(prompt="Enter a list value"): 
+	"""Read a number from input, return int or float. Repeat until valid."""
+	while True:
+		s = input(prompt + "\n").strip()
+		try:
+			if "." in s:
+				return float(s)
+			return int(s)
 		except ValueError:
 			print("Invalid number, please try again.")
+
+
+def main():
+	while True:
+		print()
+		print("1-Show the list low /high values")
+		print("2-Exit")
+		choice = input("Enter an option: ").strip()
+
+		if choice == "2":
+			print("Exiting.")
+			break
+
+		if choice != "1":
+			print("Invalid option, please choose 1 or 2.")
 			continue
-		nums.append(n)
 
-	print(f"Numbers entered: {nums}")
+		# Option 1: collect list values
+		values = []
+		while True:
+			n = _read_number("Enter a list value")
+			values.append(n)
 
-	# Step 2: compute and display the lowest number
-	if len(nums) == 0:
-		print("No numbers were entered.")
-		return
+			# Only after at least 3 values do we display the continue prompt
+			if len(values) >= 3:
+				ans = input("Do you want to enter another value? ").strip().lower()
+				if ans in ("n", "no"):
+					break
+				# any other answer continues the loop
 
-	# find minimum using a loop
-	minimum = nums[0]
-	i = 1
-	while i < len(nums):
-		if nums[i] < minimum:
-			minimum = nums[i]
-		i += 1
-
-	print(f"Lowest number: {minimum}")
-
-	# Step 3: compute and display the highest number
-	maximum = nums[0]
-	j = 1
-	while j < len(nums):
-		if nums[j] > maximum:
-			maximum = nums[j]
-		j += 1
-
-	print(f"Highest number: {maximum}")
+		# compute and display low/high using helpers
+		try:
+			low_fn, high_fn = _import_list_funcs()
+			low = low_fn(values)
+			high = high_fn(values)
+			print(f"Lowest value: {low}")
+			print(f"Highest value: {high}")
+		except Exception as e:
+			print("Error computing low/high:", e)
 
 
 if __name__ == "__main__":
