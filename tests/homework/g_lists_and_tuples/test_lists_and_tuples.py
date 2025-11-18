@@ -1,4 +1,11 @@
+import os
+import sys
 import unittest
+
+# Allow running the test file directly: add repository root to sys.path so
+# the `src` package can be imported.
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')))
+
 from src.homework.g_lists_and_tuples.lists import get_p_distance, get_p_distance_matrix
 
 
