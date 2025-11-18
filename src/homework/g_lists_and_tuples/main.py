@@ -4,12 +4,6 @@ Menu:
 1-Show the list low /high values
 2-Exit
 
-When the user chooses option 1 the program will prompt for list values.
-After the user has entered at least 3 values the prompt
-"Do you want to enter another value?" will be displayed after each entry
-so the user can stop entering values.
-"""
-
 def _import_list_funcs():
 	"""Import helper that tries a few import styles so this file can be
 	executed both as a script and as a package module during tests.

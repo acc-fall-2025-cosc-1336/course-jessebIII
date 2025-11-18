@@ -1,13 +1,5 @@
-"""List utility functions for homework.
-
-Do not use built-in min()/max() for the implementations below; use loops.
-"""
 
 def get_lowest_list_value(values):
-	"""Return the lowest value in the list `values` using a loop.
-
-	Raises ValueError if the list is empty.
-	"""
 	if values is None or len(values) == 0:
 		raise ValueError("values must be a non-empty list")
 
@@ -22,10 +14,6 @@ def get_lowest_list_value(values):
 
 
 def get_highest_list_value(values):
-    """Return the highest value in the list `values` using a loop.
-
-    Raises ValueError if the list is empty.
-    """
     if values is None or len(values) == 0:
         raise ValueError("values must be a non-empty list")
 
