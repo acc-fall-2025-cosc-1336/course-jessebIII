@@ -1,11 +1,14 @@
-import sys, os
+import sys
+import os
 import unittest
 
-# Add project root to sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..')))
+# Ensure repository root is on sys.path so `src` and `tests` packages import correctly.
+repo_root = os.path.abspath(os.path.dirname(__file__))
+if repo_root not in sys.path:
+	sys.path.insert(0, repo_root)
 
-from tests.homework.e_functions import tests_functions
+# Import the specific test module and run it.
+from tests.homework.g_lists_and_tuples import test_lists_and_tuples
 
-# Load and run tests from tests_repetition
-suite = unittest.TestLoader().loadTestsFromModule(tests_functions)
+suite = unittest.TestLoader().loadTestsFromModule(test_lists_and_tuples)
 unittest.TextTestRunner().run(suite)
