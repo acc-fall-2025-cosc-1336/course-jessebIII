@@ -1,49 +1,42 @@
-"""Menu-driven program to collect numbers and show lowest/highest values.
+"""Menu to compute p-distance matrix for sequences.
 
 Menu:
-1-Show the list low /high values
+1-Get p distance matrix
 2-Exit
 """
 
-def _import_list_funcs():
-	"""Import helper that tries a few import styles so this file can be
-	executed both as a script and as a package module during tests.
-	"""
+def _import_pdistance():
+	"""Import get_p_distance_matrix from the lists helper with a few fallbacks."""
 	try:
-		from src.homework.g_lists_and_tuples.lists import (
-			get_lowest_list_value,
-			get_highest_list_value,
-		)
-		return get_lowest_list_value, get_highest_list_value
+		from src.homework.g_lists_and_tuples.lists import get_p_distance_matrix
+
+		return get_p_distance_matrix
 	except Exception:
 		try:
-			# When running this file directly from its directory
-			from lists import get_lowest_list_value, get_highest_list_value
+			from lists import get_p_distance_matrix
 
-			return get_lowest_list_value, get_highest_list_value
+			return get_p_distance_matrix
 		except Exception:
-			# When imported as a package
-			from .lists import get_lowest_list_value, get_highest_list_value
+			from .lists import get_p_distance_matrix
 
-			return get_lowest_list_value, get_highest_list_value
+			return get_p_distance_matrix
 
 
-def _read_number(prompt="Enter a list value"): 
-	"""Read a number from input, return int or float. Repeat until valid."""
+def _read_sequence(prompt="Enter a sequence"):
+	"""Read a non-empty sequence from input and return it as a list of characters."""
 	while True:
 		s = input(prompt + "\n").strip()
-		try:
-			if "." in s:
-				return float(s)
-			return int(s)
-		except ValueError:
-			print("Invalid number, please try again.")
+		if s == "":
+			print("Empty sequence not allowed, please try again.")
+			continue
+		# return as list of characters (works for DNA strings)
+		return list(s)
 
 
 def main():
 	while True:
 		print()
-		print("1-Show the list low /high values")
+		print("1-Get p distance matrix")
 		print("2-Exit")
 		choice = input("Enter an option: ").strip()
 
@@ -55,28 +48,26 @@ def main():
 			print("Invalid option, please choose 1 or 2.")
 			continue
 
-		# Option 1: collect list values
-		values = []
+		# collect sequences
+		seqs = []
 		while True:
-			n = _read_number("Enter a list value")
-			values.append(n)
+			seq = _read_sequence("Enter a sequence")
+			seqs.append(seq)
 
-			# Only after at least 3 values do we display the continue prompt
-			if len(values) >= 3:
-				ans = input("Do you want to enter another value? ").strip().lower()
+			# after at least 2 sequences allow stopping
+			if len(seqs) >= 2:
+				ans = input("Do you want to enter another sequence? ").strip().lower()
 				if ans in ("n", "no"):
 					break
-				# any other answer continues the loop
 
-		# compute and display low/high using helpers
 		try:
-			low_fn, high_fn = _import_list_funcs()
-			low = low_fn(values)
-			high = high_fn(values)
-			print(f"Lowest value: {low}")
-			print(f"Highest value: {high}")
+			get_matrix = _import_pdistance()
+			mat = get_matrix(seqs)
+			# print matrix with 3 decimal places
+			for row in mat:
+				print(" ".join(f"{x:.3f}" for x in row))
 		except Exception as e:
-			print("Error computing low/high:", e)
+			print("Error computing p-distance matrix:", e)
 
 
 if __name__ == "__main__":
