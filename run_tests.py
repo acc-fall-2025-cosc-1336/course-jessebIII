@@ -8,7 +8,7 @@ if repo_root not in sys.path:
 	sys.path.insert(0, repo_root)
 
 # Import the specific test module and run it.
-from tests.homework.g_lists_and_tuples import test_lists_and_tuples
+from tests.homework.i_dictionaries_sets import test_dictionaries_and_sets
 
-suite = unittest.TestLoader().loadTestsFromModule(test_lists_and_tuples)
+suite = unittest.TestLoader().loadTestsFromModule(test_dictionaries_and_sets)
 unittest.TextTestRunner().run(suite)
