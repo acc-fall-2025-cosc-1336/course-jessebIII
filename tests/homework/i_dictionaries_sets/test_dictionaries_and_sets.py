@@ -37,3 +37,7 @@ class Test_Config(unittest.TestCase):
 		self.assertIn('Widget1', inventory_dictionary)
 		self.assertEqual(inventory_dictionary['Widget1'], 10)
 
+		# add 25 more to Widget1 and verify updated total is 35
+		add_inventory(inventory_dictionary, 'Widget1', 25)
+		self.assertEqual(inventory_dictionary['Widget1'], 35)
+
