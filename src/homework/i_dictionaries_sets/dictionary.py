@@ -3,8 +3,8 @@ def add_inventory(inventory, widget, quantity):
 		raise ValueError("inventory must be a dict")
 	if not isinstance(widget, str) or widget == "":
 		raise ValueError("widget must be a non-empty string")
-	if not isinstance(quantity, int) or quantity < 0:
-		raise ValueError("quantity must be a non-negative integer")
+	if not isinstance(quantity, int):
+		raise ValueError("quantity must be an integer")
 
 	if widget in inventory:
 		inventory[widget] = inventory[widget] + quantity

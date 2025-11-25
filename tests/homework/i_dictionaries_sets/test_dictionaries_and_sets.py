@@ -41,3 +41,7 @@ class Test_Config(unittest.TestCase):
 		add_inventory(inventory_dictionary, 'Widget1', 25)
 		self.assertEqual(inventory_dictionary['Widget1'], 35)
 
+		# adding -10 should decrease the quantity to 25
+		add_inventory(inventory_dictionary, 'Widget1', -10)
+		self.assertEqual(inventory_dictionary['Widget1'], 25)
+
