@@ -45,3 +45,16 @@ class Test_Config(unittest.TestCase):
 		add_inventory(inventory_dictionary, 'Widget1', -10)
 		self.assertEqual(inventory_dictionary['Widget1'], 25)
 
+	def test_remove_inventory_widget(self):
+		from src.homework.i_dictionaries_sets import add_inventory, remove_inventory_widget
+
+		inv = {}
+		add_inventory(inv, 'widget1', 7)
+		add_inventory(inv, 'widget2', 12)
+
+		removed = remove_inventory_widget(inv, 'widget1')
+		# after removal, only widget2 should remain
+		self.assertEqual(len(inv), 1)
+		self.assertIn('widget2', inv)
+		self.assertEqual(inv['widget2'], 12)
+
