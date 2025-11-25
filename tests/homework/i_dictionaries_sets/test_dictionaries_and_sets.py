@@ -7,3 +7,27 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..',
 
 from src.homework.i_dictionaries_sets import get_p_distance
 from src.homework.i_dictionaries_sets import get_p_distance
+
+
+def test_imported_callable():
+	assert callable(get_p_distance)
+
+
+class Test_Config(unittest.TestCase):
+
+	def test_add_inventory(self):
+		from src.homework.i_dictionaries_sets import add_inventory, remove_inventory_widget
+
+		inv = {}
+		add_inventory(inv, 'widgetA', 5)
+		self.assertIn('widgetA', inv)
+		self.assertEqual(inv['widgetA'], 5)
+
+		add_inventory(inv, 'widgetA', 3)
+		self.assertEqual(inv['widgetA'], 8)
+
+		# remove and verify returned quantity
+		removed = remove_inventory_widget(inv, 'widgetA')
+		self.assertEqual(removed, 8)
+		self.assertNotIn('widgetA', inv)
+
