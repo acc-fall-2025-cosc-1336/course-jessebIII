@@ -12,3 +12,5 @@ def get_p_distance(list1, list2):
         i += 1
 
     return diffs / len(list1)
+
+from .dictionary import add_inventory, remove_inventory_widget
