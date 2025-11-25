@@ -31,3 +31,9 @@ class Test_Config(unittest.TestCase):
 		self.assertEqual(removed, 8)
 		self.assertNotIn('widgetA', inv)
 
+		# additional assertion: adding Widget1 with quantity 10
+		inventory_dictionary = {}
+		add_inventory(inventory_dictionary, 'Widget1', 10)
+		self.assertIn('Widget1', inventory_dictionary)
+		self.assertEqual(inventory_dictionary['Widget1'], 10)
+
